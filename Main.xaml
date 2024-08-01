@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_response" Type="InArgument(x:Int32)" />
     <x:Property Name="out_content" Type="InArgument(x:String)" />
@@ -32,7 +32,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1243,602</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1243,813</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -74,6 +74,7 @@
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -143,7 +144,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="512,491" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="416,583" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="a1FFUnl3ZVlzU0NDZkVUTk9Oc2g" Name="apiKey" />
       <Variable x:TypeArguments="x:String" Default="[&quot;https://sms.arkesel.com/sms/api?action=send-sms&amp;api_key=&quot; + apiKey + &quot;&amp;to=&quot; + phoneNumber + &quot;&amp;from=&quot; + senderID + &quot;&amp;sms=&quot; + message]" Name="fullEndpoint" />
@@ -160,15 +161,15 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=PostgreSQL30;uid=postgres;pwd=4vbatr1" DatabaseConnection="[db_conn]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Midwife SMS Update - Invoke Workflow File (Midwife SMS Update.xaml)" sap:VirtualizedContainerService.HintSize="450,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Midwife SMS Update.xaml">
+    <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="354,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=PostgreSQL30;uid=postgres;pwd=4vbatr1" DatabaseConnection="[db_conn]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Midwife SMS Update - Invoke Workflow File (Midwife SMS Update.xaml)" sap:VirtualizedContainerService.HintSize="354,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Midwife SMS Update.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="midwifeid_dt">[midwifeid_dt]</OutArgument>
         <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="db_conn">[db_conn]</InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="appointment_count_dt" />
         <InOutArgument x:TypeArguments="x:String" x:Key="appointment_count" />
-        <InArgument x:TypeArguments="x:String" x:Key="fullEndPoint" />
-        <InArgument x:TypeArguments="x:String" x:Key="apiKey">[apiKey]</InArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="fullEndPoint" />
+        <InOutArgument x:TypeArguments="x:String" x:Key="apiKey">[apiKey]</InOutArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="midwifePhone_dt" />
         <InArgument x:TypeArguments="x:String" x:Key="midwifePhone" />
         <InArgument x:TypeArguments="x:String" x:Key="message">[message]</InArgument>
@@ -184,165 +185,19 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <Sequence sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_22">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DataTable="[out_dt]" DisplayName="Run Query" ExistingDbConnection="[db_conn]" sap:VirtualizedContainerService.HintSize="592,57" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="SELECT p.patientphone&#xD;&#xA;FROM appointments a &#xD;&#xA;JOIN patients p ON a.patientid = p.patientid&#xD;&#xA;WHERE appointmentdate::date = CURRENT_DATE + INTERVAL '1 day';&#xD;&#xA;">
-        <ui:ExecuteQuery.Parameters>
-          <scg:Dictionary x:TypeArguments="x:String, Argument" />
-        </ui:ExecuteQuery.Parameters>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:ExecuteQuery>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[out_dt]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="592,1133" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-        <ui:ForEachRow.Body>
-          <ActivityAction x:TypeArguments="sd:DataRow">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
-            </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="558,937" sap2010:WorkflowViewState.IdRef="Sequence_20">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="496,114" sap2010:WorkflowViewState.IdRef="Assign_3">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:Object">[numberValue]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:Object">[Row("patientphone").toString]</InArgument>
-                </Assign.Value>
-              </Assign>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[numberValue]" />
-              <Sequence DisplayName="SendSMSSequence" sap:VirtualizedContainerService.HintSize="496,562" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_4">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[phoneNumber]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[numberValue.ToString]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" BodyFormat="application/xml" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="[fullEndpoint]" sap:VirtualizedContainerService.HintSize="434,102" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="GET" Result="[out_content]" StatusCode="[out_response]" TimeoutMS="6000">
-                  <ui:HttpClient.Attachments>
-                    <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-                  </ui:HttpClient.Attachments>
-                  <ui:HttpClient.Cookies>
-                    <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-                  </ui:HttpClient.Cookies>
-                  <ui:HttpClient.Headers>
-                    <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-                  </ui:HttpClient.Headers>
-                  <ui:HttpClient.Parameters>
-                    <InArgument x:TypeArguments="x:String" x:Key="action">send-sms</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="api_key">[apiKey]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="to">[phoneNumber]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="from">[senderID]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="sms">[message]</InArgument>
-                  </ui:HttpClient.Parameters>
-                  <ui:HttpClient.UrlSegments>
-                    <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-                  </ui:HttpClient.UrlSegments>
-                </ui:HttpClient>
-                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[out_response.AsText]" />
-                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[out_content.AsText]" />
-              </Sequence>
-            </Sequence>
-          </ActivityAction>
-        </ui:ForEachRow.Body>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:ForEachRow>
-    </Sequence>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="CommentOut_5">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,136" sap2010:WorkflowViewState.IdRef="Sequence_18">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="SendVoiceSMSSequence" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Sequence_17">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Default="https://sms.arkesel.com/api/v2/sms/voice/send" Name="fullEndPoint" />
-              <Variable x:TypeArguments="x:String" Default="0540000000" Name="voiceID" />
-              <Variable x:TypeArguments="x:String" Default="C:\Users\carln\Downloads\Telegram Desktop\Avicii_feat_Aloe_Blacc_Wake_Me_Up_Рингтоны_для_iPhone.mp3" Name="voiceFilePath" />
-              <Variable x:TypeArguments="x:String" Default="False" Name="retryValue" />
-              <Variable x:TypeArguments="x:String" Default="a1FFUnl3ZVlzU0NDZkVUTk9Oc2g" Name="apiKey" />
-              <Variable x:TypeArguments="s:String[]" Name="recipientsArray" />
-              <Variable x:TypeArguments="x:String" Name="recipientsString" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
-              <Assign.To>
-                <OutArgument x:TypeArguments="s:String[]">[recipientsArray]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="s:String[]">[New String() {"233243687247"}]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_2">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[recipientsString]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[String.Join(",", recipientsArray)]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" AuthenticationType="None" BodyFormat="application/xml" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="[fullEndPoint]" sap:VirtualizedContainerService.HintSize="434,102" sap2010:WorkflowViewState.IdRef="HttpClient_3" Method="POST" Result="[out_content]" StatusCode="[out_response]" TimeoutMS="60000">
-              <ui:HttpClient.Attachments>
-                <InArgument x:TypeArguments="x:String" x:Key="voice_file">[voiceFilePath]</InArgument>
-              </ui:HttpClient.Attachments>
-              <ui:HttpClient.Cookies>
-                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-              </ui:HttpClient.Cookies>
-              <ui:HttpClient.Headers>
-                <InArgument x:TypeArguments="x:String" x:Key="api-key">[apiKey]</InArgument>
-              </ui:HttpClient.Headers>
-              <ui:HttpClient.Parameters>
-                <InArgument x:TypeArguments="x:String" x:Key="retry">[retryValue]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="recipients[]">[recipientsString]</InArgument>
-              </ui:HttpClient.Parameters>
-              <ui:HttpClient.UrlSegments>
-                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-              </ui:HttpClient.UrlSegments>
-            </ui:HttpClient>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[out_response.AsText]" />
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[out_content.AsText]" />
-          </Sequence>
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Patient SMS Update - Invoke Workflow File (Patient SMS Update.xaml)" sap:VirtualizedContainerService.HintSize="354,197" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Patient SMS Update.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt">[out_dt]</InOutArgument>
+        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="db_conn">[db_conn]</InArgument>
+        <InOutArgument x:TypeArguments="x:Object" x:Key="numberValue">[numberValue]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="phoneNumber">[phoneNumber]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="out_response">[out_response]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="out_content">[out_content]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="fullEndpoint">[fullEndpoint]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="apiKey">[apiKey]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="senderID">[senderID]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="message">[message]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>
