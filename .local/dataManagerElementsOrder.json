@@ -1,0 +1,44 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "apiKey&Sequence_14",
+        "phoneNumber&Sequence_14",
+        "senderID&Sequence_14",
+        "message&Sequence_14",
+        "fullEndpoint&Sequence_14",
+        "apiKey&Sequence_11",
+        "phoneNumber&Sequence_11",
+        "senderID&Sequence_11",
+        "message&Sequence_11",
+        "fullEndpoint&Sequence_11",
+        "fullEndPoint&Sequence_10",
+        "voiceID&Sequence_10",
+        "voiceFilePath&Sequence_10",
+        "retryValue&Sequence_10",
+        "apiKey&Sequence_10",
+        "recipientsArray&Sequence_10",
+        "recipientsString&Sequence_10"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "db_conn",
+        "out_dt",
+        "out_response",
+        "out_content",
+        "retryValue"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
