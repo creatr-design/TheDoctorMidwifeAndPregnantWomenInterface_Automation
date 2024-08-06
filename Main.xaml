@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_response" Type="InArgument(x:Int32)" />
     <x:Property Name="out_content" Type="InArgument(x:String)" />
@@ -32,7 +32,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1243,813</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1243,980.9999999999999</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -142,17 +142,16 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
       <AssemblyReference>System.Private.Xml</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="416,583" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="512,916" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="a1FFUnl3ZVlzU0NDZkVUTk9Oc2g" Name="apiKey" />
       <Variable x:TypeArguments="x:String" Default="[&quot;https://sms.arkesel.com/sms/api?action=send-sms&amp;api_key=&quot; + apiKey + &quot;&amp;to=&quot; + phoneNumber + &quot;&amp;from=&quot; + senderID + &quot;&amp;sms=&quot; + message]" Name="fullEndpoint" />
-      <Variable x:TypeArguments="x:String" Name="senderID">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">Project</Literal>
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="Project" Name="senderID" />
       <Variable x:TypeArguments="x:String" Name="phoneNumber" />
       <Variable x:TypeArguments="x:String" Default="This is a test message" Name="message" />
     </Sequence.Variables>
@@ -161,43 +160,69 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="354,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=PostgreSQL30;uid=postgres;pwd=4vbatr1" DatabaseConnection="[db_conn]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Midwife SMS Update - Invoke Workflow File (Midwife SMS Update.xaml)" sap:VirtualizedContainerService.HintSize="354,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Midwife SMS Update.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="midwifeid_dt">[midwifeid_dt]</OutArgument>
-        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="db_conn">[db_conn]</InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="appointment_count_dt" />
-        <InOutArgument x:TypeArguments="x:String" x:Key="appointment_count" />
-        <InOutArgument x:TypeArguments="x:String" x:Key="fullEndPoint" />
-        <InOutArgument x:TypeArguments="x:String" x:Key="apiKey">[apiKey]</InOutArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="midwifePhone_dt" />
-        <InArgument x:TypeArguments="x:String" x:Key="midwifePhone" />
-        <InArgument x:TypeArguments="x:String" x:Key="message">[message]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="senderID">[senderID]</InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="midwifeName_dt" />
-        <InArgument x:TypeArguments="x:String" x:Key="midwifeName" />
-        <InArgument x:TypeArguments="x:String" x:Key="out_response" />
-      </ui:InvokeWorkflowFile.Arguments>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Patient SMS Update - Invoke Workflow File (Patient SMS Update.xaml)" sap:VirtualizedContainerService.HintSize="354,197" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Patient SMS Update.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt">[out_dt]</InOutArgument>
-        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="db_conn">[db_conn]</InArgument>
-        <InOutArgument x:TypeArguments="x:Object" x:Key="numberValue">[numberValue]</InOutArgument>
-        <InOutArgument x:TypeArguments="x:String" x:Key="phoneNumber">[phoneNumber]</InOutArgument>
-        <InOutArgument x:TypeArguments="x:Int32" x:Key="out_response">[out_response]</InOutArgument>
-        <InOutArgument x:TypeArguments="x:String" x:Key="out_content">[out_content]</InOutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="fullEndpoint">[fullEndpoint]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="apiKey">[apiKey]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="senderID">[senderID]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="message">[message]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
+    <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=PostgreSQL30;uid=postgres;pwd=4vbatr1" DatabaseConnection="[db_conn]" />
+    <If Condition="[Now.TimeOfDay &gt; New TimeSpan(7,0,0) AND Now.TimeOfDay &lt; New TimeSpan(8,0,0)]" sap:VirtualizedContainerService.HintSize="450,736" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,287" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Midwife SMS Update - Invoke Workflow File (Midwife SMS Update.xaml)" sap:VirtualizedContainerService.HintSize="354,199" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Midwife SMS Update.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="midwifeid_dt">[midwifeid_dt]</OutArgument>
+              <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="db_conn">[db_conn]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="appointment_count_dt" />
+              <InOutArgument x:TypeArguments="x:String" x:Key="appointment_count" />
+              <InOutArgument x:TypeArguments="x:String" x:Key="fullEndPoint" />
+              <InOutArgument x:TypeArguments="x:String" x:Key="apiKey">[apiKey]</InOutArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="midwifePhone_dt" />
+              <InArgument x:TypeArguments="x:String" x:Key="midwifePhone" />
+              <InArgument x:TypeArguments="x:String" x:Key="message">[message]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="senderID">[senderID]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="midwifeName_dt" />
+              <InArgument x:TypeArguments="x:String" x:Key="midwifeName" />
+              <InArgument x:TypeArguments="x:String" x:Key="out_response" />
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,287" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Patient SMS Update - Invoke Workflow File (Patient SMS Update.xaml)" sap:VirtualizedContainerService.HintSize="354,199" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Patient SMS Update.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt">[out_dt]</InOutArgument>
+              <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="db_conn">[db_conn]</InArgument>
+              <InOutArgument x:TypeArguments="x:Object" x:Key="numberValue">[numberValue]</InOutArgument>
+              <InOutArgument x:TypeArguments="x:String" x:Key="phoneNumber">[phoneNumber]</InOutArgument>
+              <InOutArgument x:TypeArguments="x:Int32" x:Key="out_response">[out_response]</InOutArgument>
+              <InOutArgument x:TypeArguments="x:String" x:Key="out_content">[out_content]</InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="fullEndpoint">[fullEndpoint]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="apiKey">[apiKey]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="senderID">[senderID]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="message">[message]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="appointmentID" />
+              <InArgument x:TypeArguments="x:String" x:Key="smsPref" />
+              <InArgument x:TypeArguments="x:String" x:Key="fullEndpointVoice" />
+              <InArgument x:TypeArguments="x:String" x:Key="voiceID" />
+              <InArgument x:TypeArguments="x:String" x:Key="voiceFile" />
+              <InArgument x:TypeArguments="s:String[]" x:Key="recipientsArray" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Else>
+    </If>
   </Sequence>
 </Activity>

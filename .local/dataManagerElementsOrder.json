@@ -12,30 +12,69 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "apiKey&Sequence_14",
-        "phoneNumber&Sequence_14",
-        "senderID&Sequence_14",
-        "message&Sequence_14",
-        "fullEndpoint&Sequence_14",
-        "apiKey&Sequence_11",
-        "phoneNumber&Sequence_11",
-        "senderID&Sequence_11",
-        "message&Sequence_11",
-        "fullEndpoint&Sequence_11",
-        "fullEndPoint&Sequence_10",
-        "voiceID&Sequence_10",
-        "voiceFilePath&Sequence_10",
-        "retryValue&Sequence_10",
-        "apiKey&Sequence_10",
-        "recipientsArray&Sequence_10",
-        "recipientsString&Sequence_10"
+        "apiKey&Sequence_1",
+        "fullEndpoint&Sequence_1",
+        "senderID&Sequence_1",
+        "phoneNumber&Sequence_1",
+        "message&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "midwifeid_dt",
+        "numberValue",
         "db_conn",
         "out_dt",
         "out_response",
         "out_content",
         "retryValue"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Midwife SMS Update.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "midwifeID&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_response",
+        "midwifeName",
+        "midwifeName_dt",
+        "senderID",
+        "message",
+        "midwifePhone",
+        "midwifePhone_dt",
+        "apiKey",
+        "fullEndPoint",
+        "appointment_count",
+        "appointment_count_dt",
+        "midwifeid_dt",
+        "db_conn"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Patient SMS Update.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "recipientsArray",
+        "voiceFile",
+        "voiceID",
+        "fullEndpointVoice",
+        "smsPref",
+        "appointmentID",
+        "out_dt",
+        "db_conn",
+        "numberValue",
+        "phoneNumber",
+        "out_response",
+        "out_content",
+        "fullEndpoint",
+        "apiKey",
+        "senderID",
+        "message"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
