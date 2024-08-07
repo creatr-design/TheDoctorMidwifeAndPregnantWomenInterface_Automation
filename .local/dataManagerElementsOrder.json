@@ -59,7 +59,6 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
-        "recipientsArray",
         "voiceFile",
         "voiceID",
         "fullEndpointVoice",
@@ -67,7 +66,6 @@
         "appointmentID",
         "out_dt",
         "db_conn",
-        "numberValue",
         "phoneNumber",
         "out_response",
         "out_content",
