@@ -22926,15 +22926,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\carln\\.nuget\\packages\\": {}
+    "C:\\Users\\CNKTM\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "PregnancyTrackingandNotification",
       "projectName": "PregnancyTrackingandNotification",
-      "projectPath": "C:\\Users\\carln\\Documents\\UiPath\\PregnancyTrackingandNotification\\.local",
-      "packagesPath": "C:\\Users\\carln\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carln\\Documents\\UiPath\\PregnancyTrackingandNotification\\.local"
+      "projectPath": "C:\\Users\\CNKTM\\Desktop\\Devs_Final\\PregnancyTrackingandNotification\\automation_system\\.local",
+      "packagesPath": "C:\\Users\\CNKTM\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\CNKTM\\Desktop\\Devs_Final\\PregnancyTrackingandNotification\\automation_system\\.local"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -22975,7 +22975,7 @@
             "version": "[1.21.0, 1.21.0]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\carln\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\CNKTM\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
