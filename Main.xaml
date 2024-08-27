@@ -161,7 +161,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=PostgreSQL35W;uid=postgres;pwd=4vbatr1" DatabaseConnection="[db_conn]" />
-    <If Condition="[Now.TimeOfDay &gt; New TimeSpan(2,0,0) AND Now.TimeOfDay &lt; New TimeSpan(8,0,0)]" sap:VirtualizedContainerService.HintSize="450,731" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[Now.TimeOfDay &gt; New TimeSpan(5,0,0) AND Now.TimeOfDay &lt; New TimeSpan(6,0,0)]" sap:VirtualizedContainerService.HintSize="450,731" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,285" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>

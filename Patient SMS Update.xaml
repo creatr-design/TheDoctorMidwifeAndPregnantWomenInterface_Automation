@@ -21,7 +21,7 @@
   <this:Patient_SMS_Update.smsPref>
     <InArgument x:TypeArguments="x:String" />
   </this:Patient_SMS_Update.smsPref>
-  <sap:VirtualizedContainerService.HintSize>1233,2897</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1233,2769</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -142,20 +142,20 @@
       <AssemblyReference>System.Collections.Specialized</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="832,2832" sap2010:WorkflowViewState.IdRef="Sequence_25">
+  <Sequence sap:VirtualizedContainerService.HintSize="832,2704" sap2010:WorkflowViewState.IdRef="Sequence_25">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="770,2744" sap2010:WorkflowViewState.IdRef="Sequence_22">
+    <Sequence sap:VirtualizedContainerService.HintSize="770,2616" sap2010:WorkflowViewState.IdRef="Sequence_22">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DataTable="[out_dt]" DisplayName="Run Query" ExistingDbConnection="[db_conn]" sap:VirtualizedContainerService.HintSize="708,146" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="SELECT p.patientphone, a.appointmentid, p.sms_type, p.language&#xA;FROM appointments a &#xA;JOIN patients p ON a.patientid = p.patientid&#xA;WHERE appointmentdate::date = CURRENT_DATE + INTERVAL '1 day';&#xA;">
+      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DataTable="[out_dt]" DisplayName="Run Query" ExistingDbConnection="[db_conn]" sap:VirtualizedContainerService.HintSize="708,146" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="SELECT p.patientphone, a.appointmentid, p.sms_type, p.language&#xD;&#xA;FROM appointments a &#xD;&#xA;JOIN patients p ON a.patientid = p.patientid&#xD;&#xA;WHERE appointmentdate::date = CURRENT_DATE + INTERVAL '1 day';&#xD;&#xA;">
         <ui:ExecuteQuery.Parameters>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:ExecuteQuery.Parameters>
@@ -166,20 +166,20 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ExecuteQuery>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[out_dt]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="708,2487" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[out_dt]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="708,2359" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="674,2300" sap2010:WorkflowViewState.IdRef="Sequence_20">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="674,2172" sap2010:WorkflowViewState.IdRef="Sequence_20">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[Row(&quot;language&quot;).ToString]" sap:VirtualizedContainerService.HintSize="612,320" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+              <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[Row(&quot;language&quot;).ToString]" sap:VirtualizedContainerService.HintSize="612,192" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                 <Switch.Default>
                   <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
                     <Assign.To>
@@ -190,7 +190,7 @@
                     </Assign.Value>
                   </Assign>
                 </Switch.Default>
-                <Assign x:Key="Ewe" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign x:Key="Ewe" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_6">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[voiceFilePath]</OutArgument>
                   </Assign.To>
@@ -198,7 +198,7 @@
                     <InArgument x:TypeArguments="x:String">C:\Users\CNKTM\Desktop\Devs_Final\PregnancyTrackingandNotification\automation_system\recordings\Ewe.mp3</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Assign x:Key="Hausa" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign x:Key="Hausa" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_7">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[voiceFilePath]</OutArgument>
                   </Assign.To>

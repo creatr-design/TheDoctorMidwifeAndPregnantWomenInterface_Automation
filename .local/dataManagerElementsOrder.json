@@ -59,7 +59,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
-        "voiceFile",
+        "voiceFilePath",
         "voiceID",
         "fullEndpointVoice",
         "smsPref",
